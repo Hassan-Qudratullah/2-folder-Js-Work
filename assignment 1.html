@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Checker</title>
+    <style>
+     
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 5px;
+            margin: 5px 0;
+            width: 200px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #0551f7;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #223279;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Character Checker</h1>
+    <label for="character">Enter a character:</label>
+    <input type="text" id="character" placeholder="Enter a character">
+    <button onclick="checkCharacter()">Check</button>
+    <div id="result"></div>
+
+    <script>
+        
+        function checkCharacter() {
+            var character = document.getElementById("character").value.trim();
+            var resultDiv = document.getElementById("result");
+
+            if (character.length !== 1) {
+                resultDiv.innerText = "Please enter a single character.";
+                return;
+            }
+
+            var charCode = character.charCodeAt(0);
+
+            if (charCode >= 48 && charCode <= 57) {
+                resultDiv.innerText = "The input is a number.";
+            } else if (charCode >= 65 && charCode <= 90) {
+                resultDiv.innerText = "The input is an uppercase letter.";
+            } else if (charCode >= 97 && charCode <= 122) {
+                resultDiv.innerText = "The input is a lowercase letter.";
+            } else {
+                resultDiv.innerText = "The input is neither a number nor a letter.";
+            }
+        }
+    </script>
+</body>
+</html>

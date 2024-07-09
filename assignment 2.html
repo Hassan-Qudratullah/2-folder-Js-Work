@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compare Integers</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="number"] {
+            padding: 5px;
+            margin: 5px 0;
+            width: 140px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #fc0505;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #bd3614;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Compare Integers</h1>
+    <label for="integer1">Enter first integer:</label>
+    <input type="number" id="integer1" placeholder="Enter first integer"><br>
+    <label for="integer2">Enter second integer:</label>
+    <input type="number" id="integer2" placeholder="Enter second integer"><br>
+    <button onclick="compareIntegers()">Compare</button>
+    <div id="result"></div>
+
+    <script>
+       
+        function compareIntegers() {
+            var integer1 = parseInt(document.getElementById("integer1").value);
+            var integer2 = parseInt(document.getElementById("integer2").value);
+            var resultDiv = document.getElementById("result");
+
+            if (isNaN(integer1) || isNaN(integer2)) {
+                resultDiv.innerText = "Please enter valid integers.";
+            } else if (integer1 > integer2) {
+                resultDiv.innerText = "The larger integer is: " + integer1;
+            } else if (integer2 > integer1) {
+                resultDiv.innerText = "The larger integer is: " + integer2;
+            } else {
+                resultDiv.innerText = "Both integers are equal.";
+            }
+        }
+    </script>
+</body>
+</html>

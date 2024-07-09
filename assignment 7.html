@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time-based Greeting</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input[type='text'] {
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px;
+            background-color: aqua;
+            color: black;
+        }
+        button:hover{
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enter Time (24-hour format)</h1>
+    <input type="text" id="userTime" placeholder="e.g., 1900">
+    <button onclick="displayGreeting()">Submit</button>
+    <p id="greeting"></p>
+
+    <script>
+        function displayGreeting() {
+            var time = document.getElementById('userTime').value;
+            var greeting = "";
+
+            if (time >= '0000' && time < '1200') {
+                greeting = "Good morning!";
+            } else if (time >= '1200' && time < '1700') {
+                greeting = "Good afternoon!";
+            } else if (time >= '1700' && time < '2100') {
+                greeting = "Good evening!";
+            } else if (time >= '2100' && time <= '2359') {
+                greeting = "Good night!";
+            } else {
+                greeting = "Invalid time format. Please enter a valid 24-hour time.";
+            }
+
+            document.getElementById('greeting').textContent = greeting;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Checker</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"] {
+            padding: 5px;
+            margin: 5px 0;
+            width: 150px;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #fffb05;
+            color: black;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #cac828;
+        }
+        #result {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vowel Checker</h1>
+    <label for="character">Enter a character:</label>
+    <input type="text" id="character" maxlength="1" placeholder="Enter a character"><br>
+    <button onclick="checkVowel()">Check</button>
+    <div id="result"></div>
+
+    <script>
+        
+        function checkVowel() {
+            var character = document.getElementById("character").value.toLowerCase();
+            var resultDiv = document.getElementById("result");
+
+            if (character.length !== 1) {
+                resultDiv.innerText = "Please enter a single character.";
+            } else {
+                var vowels = ['a', 'e', 'i', 'o', 'u'];
+                if (vowels.includes(character)) {
+                    resultDiv.innerText = "The character is a vowel.";
+                } else {
+                    resultDiv.innerText = "The character is not a vowel.";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
